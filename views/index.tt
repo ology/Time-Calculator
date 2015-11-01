@@ -1,7 +1,7 @@
 <form action="/" method="post">
 <table>
     <tr>
-        <td colspan="4">
+        <td colspan="3">
             <table width="100%" border="0">
             <tr>
                 <td><input type="text" name="first" value="<% first %>" style="text-align:right;" title="Input" /></td>
