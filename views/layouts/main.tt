@@ -19,13 +19,6 @@
 
 </head>
 <body>
-<% IF flash.error %>
-    <div class="large-12 columns">
-        <div class="error">
-            <% flash.error %>
-        </div>
-    </div>
-<% END %>
 <% content %>
 <div id="footer">
     <hr/>
