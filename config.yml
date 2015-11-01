@@ -21,10 +21,13 @@ charset: "UTF-8"
 #template: "simple"
 
 template: "template_toolkit"
-# engines:
-#   template_toolkit:
-#     start_tag: '[%'
-#     end_tag:   '%]'
+engines:
+  template:
+    template_toolkit:
+      encoding:  'utf8'
+      INCLUDE_PATH: 'views'
+      start_tag: '<%'
+      end_tag:   '%>'
 
 # For session support enable the following line and see Dancer::Session
 # session: "YAML"
