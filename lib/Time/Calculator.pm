@@ -1,5 +1,5 @@
 package Time::Calculator;
-use Dancer ':syntax';
+use Dancer2;
 
 our $VERSION = '0.1';
 
