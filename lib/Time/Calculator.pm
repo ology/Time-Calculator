@@ -121,7 +121,7 @@ sub calculate {
         }
     }
 
-    return { output => "$out", first => $first };
+    return { first => $first, output => $out };
 }
 
 true;
