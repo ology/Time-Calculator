@@ -108,12 +108,13 @@ sub calculate {
             if ( $first && $out ) {
                 my $parsed = DateTime::Format::DateParse->parse_datetime($first);
 
-                $out = $parsed->delta_md($dt)->years()          . 'y';
-                $out .= ' ' . $parsed->delta_md($dt)->months()  . 'm';
-                $out .= ' ' . $parsed->delta_md($dt)->days()    . 'd';
-                $out .= ' ' . $parsed->delta_ms($dt)->hours()   . 'h';
-                $out .= ' ' . $parsed->delta_ms($dt)->minutes() . 'm';
-                $out .= ' ' . $parsed->delta_ms($dt)->seconds() . 's';
+                $out = sprintf '%dy %dm %dd or %dh %dm %ds',
+                    $parsed->delta_md($dt)->years,
+                    $parsed->delta_md($dt)->months,
+                    $parsed->delta_md($dt)->days,
+                    $parsed->delta_ms($dt)->hours,
+                    $parsed->delta_ms($dt)->minutes,
+                    $parsed->delta_ms($dt)->seconds;
 
                 $first = '';
             }
