@@ -2,7 +2,7 @@
 <table>
     <tr>
         <td colspan="3">
-            <table width="100%" border="0">
+            <table width="100%">
             <tr>
                 <td><input type="text" name="first" value="<% first %>" style="text-align:right;" title="Input" /></td>
                 <td><input type="text" name="output" value="<% output %>" style="text-align:right;" title="Output" /></td>
