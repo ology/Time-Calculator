@@ -36,11 +36,11 @@ any '/' => sub {
 sub calculate {
     my %args = @_;
 
-    my $first  = $args{first};
-    my $offset = $first =~ /\A\d+\z/ ? $first : 1;
+    my $op    = $args{op};
+    my $out   = $args{output};
+    my $first = $args{first};
 
-    my $out = $args{output};
-    my $op  = $args{op};
+    my $offset = $first =~ /\A\d+\z/ ? $first : 1;
 
     my $format = DateTime::Format::Strptime->new(
        pattern   => '%Y-%m-%dT%H:%M:%S',
