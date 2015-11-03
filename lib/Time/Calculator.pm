@@ -106,17 +106,18 @@ sub calculate {
         }
         elsif ( $op eq 'difference' ) {
             if ( $first && $out ) {
+                my $parsed = DateTime::Format::DateParse->parse_datetime($first);
                 my $format = DateTime::Format::Strptime->new(
                    pattern   => '%Y-%m-%dT%H:%M:%S',
                    time_zone => 'local',
                    on_error  => 'croak',
                 );
-                my $parsed = DateTime::Format::DateParse->parse_datetime($first);
                 my $first_parsed = $format->parse_datetime("$parsed");
 
                 $out = $first_parsed->delta_md($dt)->years()          . 'y';
                 $out .= ' ' . $first_parsed->delta_md($dt)->months()  . 'm';
                 $out .= ' ' . $first_parsed->delta_md($dt)->days()    . 'd';
+                $out .= ' ' . $first_parsed->delta_md($dt)->hours()   . 'h';
                 $out .= ' ' . $first_parsed->delta_ms($dt)->minutes() . 'm';
                 $out .= ' ' . $first_parsed->delta_ms($dt)->seconds() . 's';
 
