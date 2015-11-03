@@ -52,62 +52,32 @@ sub calculate {
         ? $parsed
         : DateTime->now(time_zone => 'local');
 
-    if ($op) {
-        if ( $op eq 'clear' ) {
-            $out   = '';
-            $first = '';
-        }
-        elsif ( $op eq 'now' ) {
+    my $dispatch = {
+        clear => sub { $out = ''; $first = ''; },
+        now   => sub {
             if ($out) {
                 $first = DateTime->now(time_zone => 'local');
             }
             else {
                 $out = DateTime->now(time_zone => 'local');
             }
-        }
-        elsif ( $op eq 'dow' ) {
-            $out = $dt->day_name();
-        }
-        elsif ( $op eq 'add_year' ) {
-            $out = $dt->add( years => $offset );
-        }
-        elsif ( $op eq 'subtract_year' ) {
-            $out = $dt->subtract( years => $offset );
-        }
-        elsif ( $op eq 'add_month' ) {
-            $out = $dt->add( months => $offset );
-        }
-        elsif ( $op eq 'subtract_month' ) {
-            $out = $dt->subtract( months => $offset );
-        }
-        elsif ( $op eq 'add_day' ) {
-            $out = $dt->add( days => $offset );
-        }
-        elsif ( $op eq 'subtract_day' ) {
-            $out = $dt->subtract( days => $offset );
-        }
-        elsif ( $op eq 'add_hour' ) {
-            $out = $dt->add( hours => $offset );
-        }
-        elsif ( $op eq 'subtract_hour' ) {
-            $out = $dt->subtract( hours => $offset );
-        }
-        elsif ( $op eq 'add_minute' ) {
-            $out = $dt->add( minutes => $offset );
-        }
-        elsif ( $op eq 'subtract_minute' ) {
-            $out = $dt->subtract( minutes => $offset );
-        }
-        elsif ( $op eq 'add_second' ) {
-            $out = $dt->add( seconds => $offset );
-        }
-        elsif ( $op eq 'subtract_second' ) {
-            $out = $dt->subtract( seconds => $offset );
-        }
-        elsif ( $op eq 'difference' ) {
+        },
+        dow             => sub { $out = $dt->day_name },
+        add_year        => sub { $out = $dt->add( years => $offset ) },
+        subtract_year   => sub { $out = $dt->subtract( years => $offset ) },
+        add_month       => sub { $out = $dt->add( months => $offset ) },
+        subtract_month  => sub { $out = $dt->subtract( months => $offset ) },
+        add_day         => sub { $out = $dt->add( days => $offset ) },
+        subtract_day    => sub { $out = $dt->subtract( days => $offset ) },
+        add_hour        => sub { $out = $dt->add( hours => $offset ) },
+        subtract_hour   => sub { $out = $dt->subtract( hours => $offset ) },
+        add_minute      => sub { $out = $dt->add( minutes => $offset ) },
+        subtract_minute => sub { $out = $dt->subtract( minutes => $offset ) },
+        add_second      => sub { $out = $dt->add( seconds => $offset ) },
+        subtract_second => sub { $out = $dt->subtract( seconds => $offset ) },
+        difference      => sub {
             if ( $first && $out ) {
                 my $parsed = DateTime::Format::DateParse->parse_datetime($first);
-
                 $out = sprintf '%dy %dm %dd or %dh %dm %ds',
                     $parsed->delta_md($dt)->years,
                     $parsed->delta_md($dt)->months,
@@ -115,11 +85,12 @@ sub calculate {
                     $parsed->delta_ms($dt)->hours,
                     $parsed->delta_ms($dt)->minutes,
                     $parsed->delta_ms($dt)->seconds;
-
                 $first = '';
             }
-        }
-    }
+        },
+    };
+
+    $dispatch->{$op}->();
 
     return { first => $first, output => $out };
 }
