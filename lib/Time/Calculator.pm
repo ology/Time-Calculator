@@ -4,7 +4,6 @@ use Dancer2;
 our $VERSION = '0.1';
 
 use DateTime;
-use DateTime::Format::Strptime;
 use DateTime::Format::DateParse;
 
 =head1 NAME
@@ -39,15 +38,10 @@ sub calculate {
     my $first  = $args{first};
     my $offset = $first =~ /\A\d+\z/ ? $first : 1;
 
-    my $out   = $args{output};
-    my $op    = $args{op};
+    my $out = $args{output};
+    my $op  = $args{op};
 
-    my $format = DateTime::Format::Strptime->new(
-       pattern   => '%Y-%m-%dT%H:%M:%S',
-       time_zone => 'local',
-       on_error  => 'croak',
-    );
-    my $parsed = eval { $format->parse_datetime($out) };
+    my $parsed = DateTime::Format::DateParse->parse_datetime($first);
     my $dt = !$@ && params->{output}
         ? $parsed
         : DateTime->now(time_zone => 'local');
