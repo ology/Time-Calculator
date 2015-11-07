@@ -36,7 +36,7 @@ any '/' => sub {
 sub calculate {
     my %args = @_;
 
-    my $op    = $args{op};
+    my $op    = $args{op} // 'clear';
     my $out   = $args{output};
     my $first = $args{first};
 
@@ -77,14 +77,14 @@ sub calculate {
         subtract_second => sub { $out = $dt->subtract( seconds => $offset ) },
         difference      => sub {
             if ( $first && $out ) {
-                my $parsed = DateTime::Format::DateParse->parse_datetime($first);
+                my $first_dt = DateTime::Format::DateParse->parse_datetime($first);
                 $out = sprintf '%dy %dm %dd or %dh %dm %ds',
-                    $parsed->delta_md($dt)->years,
-                    $parsed->delta_md($dt)->months,
-                    $parsed->delta_md($dt)->days,
-                    $parsed->delta_ms($dt)->hours,
-                    $parsed->delta_ms($dt)->minutes,
-                    $parsed->delta_ms($dt)->seconds;
+                    $first_dt->delta_md($dt)->years,
+                    $first_dt->delta_md($dt)->months,
+                    $first_dt->delta_md($dt)->days,
+                    $first_dt->delta_ms($dt)->hours,
+                    $first_dt->delta_ms($dt)->minutes,
+                    $first_dt->delta_ms($dt)->seconds;
                 $first = '';
             }
         },
