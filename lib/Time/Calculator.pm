@@ -80,13 +80,15 @@ sub calculate {
             if ( $first && $out ) {
                 my $date = UnixDate( $first, "%Y-%m-%eT%H:%M:%S" );
                 my $first_dt = DateTime::Format::DateParse->parse_datetime($date);
-                $out = sprintf '%dy %dm %dd or %dh %dm %ds',
-                    $first_dt->delta_md($dt)->years,
-                    $first_dt->delta_md($dt)->months,
-                    $first_dt->delta_md($dt)->days,
-                    $first_dt->delta_ms($dt)->hours,
-                    $first_dt->delta_ms($dt)->minutes,
-                    $first_dt->delta_ms($dt)->seconds;
+                if ( $first_dt ) {
+                    $out = sprintf '%dy %dm %dd or %dh %dm %ds',
+                        $first_dt->delta_md($dt)->years,
+                        $first_dt->delta_md($dt)->months,
+                        $first_dt->delta_md($dt)->days,
+                        $first_dt->delta_ms($dt)->hours,
+                        $first_dt->delta_ms($dt)->minutes,
+                        $first_dt->delta_ms($dt)->seconds;
+                }
                 $first = '';
             }
         },
