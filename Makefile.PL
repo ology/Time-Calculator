@@ -23,6 +23,7 @@ WriteMakefile(
         'DateTime' => 0,
         'DateTime::Format::Strptime' => 0,
         'DateTime::Format::DateParse' => 0,
+        'Date::Manip' => 0,
     },
     dist                => { COMPRESS => 'gzip -9f', SUFFIX => 'gz', },
     clean               => { FILES => 'Time-Calculator-*' },
