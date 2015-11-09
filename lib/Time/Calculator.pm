@@ -3,6 +3,7 @@ use Dancer2;
 
 our $VERSION = '0.1';
 
+use Date::Manip;
 use DateTime;
 use DateTime::Format::Strptime;
 use DateTime::Format::DateParse;
@@ -77,7 +78,8 @@ sub calculate {
         subtract_second => sub { $out = $dt->subtract( seconds => $offset ) },
         difference      => sub {
             if ( $first && $out ) {
-                my $first_dt = DateTime::Format::DateParse->parse_datetime($first);
+                my $date = UnixDate( $first, "%Y-%m-%eT%H:%M:%S" );
+                my $first_dt = DateTime::Format::DateParse->parse_datetime($date);
                 $out = sprintf '%dy %dm %dd or %dh %dm %ds',
                     $first_dt->delta_md($dt)->years,
                     $first_dt->delta_md($dt)->months,
