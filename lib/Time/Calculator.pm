@@ -65,7 +65,7 @@ sub calculate {
             }
         },
         localtime       => sub { $out = scalar localtime $first },
-        dow             => sub { $out = $out_dt->day_name },
+        dow             => sub { $out = $first_dt->day_name },
         add_year        => sub { $out = $out_dt->add( years => $offset ) },
         subtract_year   => sub { $out = $out_dt->subtract( years => $offset ) },
         add_month       => sub { $out = $out_dt->add( months => $offset ) },
