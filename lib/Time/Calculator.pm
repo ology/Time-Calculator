@@ -92,6 +92,7 @@ sub calculate {
                 $first = '';
             }
         },
+        localtime       => sub { $out = scalar localtime $first },
     };
 
     $dispatch->{$op}->();
