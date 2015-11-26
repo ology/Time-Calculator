@@ -7,6 +7,16 @@ use Date::Manip;
 use DateTime;
 use DateTime::Format::Strptime;
 use DateTime::Format::DateParse;
+use Time::Duration::Parse;
+use Readonly;
+
+Readonly my %DURATIONS => (
+    w => 'weeks',
+    d => 'days',
+    h => 'hours',
+    m => 'minutes',
+    s => 'seconds',
+);
 
 =head1 NAME
 
@@ -89,6 +99,10 @@ sub calculate {
                     $first_dt->delta_ms($out_dt)->seconds;
                 $first = '';
             }
+        },
+        duration        => sub {
+            my $timestring = $first =~ s/(\d+)([a-z])/$1 $DURATIONS{$2} /gr;
+            $out = parse_duration($timestring) . 's';
         },
     };
 
