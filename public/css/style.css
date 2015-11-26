@@ -182,7 +182,8 @@ code, tt {
 #footer {
 clear: both;
 padding-top: 2em;
-text-align: center;
+// text-align: center;
+padding-left: 160px;
 padding-right: 160px;
 font-family: sans-serif;
 font-size: 10px;
