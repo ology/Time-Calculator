@@ -21,7 +21,6 @@
 <body>
 <% content %>
 <div id="footer">
-    <hr/>
     Built by <a href="http://gene.ology.net/">Gene Boggs</a>
 </div>
 </body>
