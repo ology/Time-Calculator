@@ -64,7 +64,7 @@
                 <td>
                     <button name="op" value="clear" class="small button" title="Clear output">Clr</button>
                     <br/>
-                    <button name="op" value="difference" class="small button" title="Date-time difference">Diff</button>
+                    <button name="op" value="difference" class="small button" title="Date-time difference">Dif</button>
                 </td>
             </tr>
             </table>
