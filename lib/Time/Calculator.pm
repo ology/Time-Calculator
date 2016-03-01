@@ -68,10 +68,10 @@ sub calculate {
         clear => sub { $out = ''; $first = ''; },
         now   => sub {
             if ( $out ) {
-                $first = DateTime->now(time_zone => 'local');
+                $first = DateTime->now( time_zone => 'local' );
             }
             else {
-                $out = DateTime->now(time_zone => 'local');
+                $out = DateTime->now( time_zone => 'local' );
             }
         },
         localtime       => sub { $out = scalar localtime $first },
