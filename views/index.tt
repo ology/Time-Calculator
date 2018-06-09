@@ -17,7 +17,7 @@
                 <td>
                     <button name="op" value="now" class="small button" title="Current time">Now</button>
                     <br/>
-                    <button name="op" value="dow" class="small button" title="Day of week">DOW</button>
+                    <button name="op" value="dow" class="small button" title="Day of week">Dow</button>
                     <br/>
                     <button name="op" value="localtime" class="small button" title="Timestamp to date">T2D</button>
                     <br/>
