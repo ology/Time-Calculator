@@ -56,11 +56,11 @@ sub calculate {
     my ( $stamp, $first_dt, $out_dt );
 
     if ( $first ) {
-        $stamp = UnixDate( $first, "%Y-%m-%eT%H:%M:%S" );
+        $stamp = UnixDate( $first, "%Y-%m-%dT%H:%M:%S" );
         $first_dt = DateTime::Format::DateParse->parse_datetime($stamp);
     }
     if ( $out ) {
-        $stamp = UnixDate( $out, "%Y-%m-%eT%H:%M:%S" );
+        $stamp = UnixDate( $out, "%Y-%m-%dT%H:%M:%S" );
         $out_dt = DateTime::Format::DateParse->parse_datetime($stamp);
     }
 
