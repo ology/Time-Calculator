@@ -68,7 +68,7 @@ sub calculate {
         swap            => sub { my $temp = $first; $first = $out; $out = $temp; },
         clear           => sub { $out = ''; $first = ''; },
         now             => sub { $first = DateTime->now( time_zone => 'local' ) },
-        localtime       => sub { $out = scalar( localtime $first ) },
+        localtime       => sub { $out = scalar( localtime UnixDate( $first, '%s') ) },
         dow             => sub { $out = $first_dt->day_name },
         add_year        => sub { $out = $out_dt->add( years => $offset ) },
         subtract_year   => sub { $out = $out_dt->subtract( years => $offset ) },
