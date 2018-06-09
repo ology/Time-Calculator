@@ -93,7 +93,7 @@ sub calculate {
                 $first = '';
             }
         },
-        duration        => sub {
+        duration => sub {
             my $timestring = $first =~ s/(\d+)([a-z])/$1 $DURATIONS{$2} /gr;
             $out = parse_duration($timestring) . 's';
         },
