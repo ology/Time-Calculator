@@ -65,6 +65,7 @@ sub calculate {
     }
 
     my $dispatch = {
+        swap            => sub { my $temp = $first; $first = $out; $out = $temp; },
         clear           => sub { $out = ''; $first = ''; },
         now             => sub { $first = DateTime->now( time_zone => 'local' ) },
         localtime       => sub { $out = scalar( localtime $first ) },
