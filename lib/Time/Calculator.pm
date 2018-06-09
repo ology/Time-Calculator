@@ -84,14 +84,14 @@ sub calculate {
         subtract_second => sub { $out = $out_dt->subtract( seconds => $offset ) },
         difference      => sub {
             if ( $first_dt && $out_dt ) {
-                $out = sprintf '%dy %dm %dd or %dh %dm %ds',
+                $first = '';
+                $out   = sprintf '%dy %dm %dd or %dh %dm %ds',
                     $first_dt->delta_md($out_dt)->years,
                     $first_dt->delta_md($out_dt)->months,
                     $first_dt->delta_md($out_dt)->days,
                     $first_dt->delta_ms($out_dt)->hours,
                     $first_dt->delta_ms($out_dt)->minutes,
                     $first_dt->delta_ms($out_dt)->seconds;
-                $first = '';
             }
         },
         duration => sub {
