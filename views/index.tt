@@ -16,13 +16,13 @@
             <table class="no_margin">
             <tr>
                 <td>
-                    <button name="op" value="now" class="small button" title="Current time">Now</button>
+                    <button name="op" value="now" class="small button" title="Current time: none">Now</button>
                     <br/>
-                    <button name="op" value="dow" class="small button" title="Day of week">Dow</button>
+                    <button name="op" value="dow" class="small button" title="Day of week: first=date-time">Dow</button>
                     <br/>
-                    <button name="op" value="localtime" class="small button" title="Timestamp to date">T2D</button>
+                    <button name="op" value="localtime" class="small button" title="Timestamp to date: first=date-time">T2D</button>
                     <br/>
-                    <button name="op" value="duration" class="small button" title="Duration">Dur</button>
+                    <button name="op" value="duration" class="small button" title="Duration: first=date-time, second=date-time">Dur</button>
                 </td>
             </tr>
             </table>
@@ -31,30 +31,30 @@
             <table class="no_margin">
             <tr>
                 <td>
-                    <button name="op" value="add_year" class="small button" title="Add a year">+Y</button>
+                    <button name="op" value="add_year" class="small button" title="Add a year: first=offset, second=date-time">+Y</button>
                     <br/>
-                    <button name="op" value="add_month" class="small button" title="Add a month">+M</button>
+                    <button name="op" value="add_month" class="small button" title="Add a month: first=offset, second=date-time">+M</button>
                     <br/>
-                    <button name="op" value="add_day" class="small button" title="Add a day">+D</button>
+                    <button name="op" value="add_day" class="small button" title="Add a day: first=offset, second=date-time">+D</button>
                     <br/>
-                    <button name="op" value="add_hour" class="small button" title="Add an hour">+h</button>
+                    <button name="op" value="add_hour" class="small button" title="Add an hour: first=offset, second=date-time">+h</button>
                     <br/>
-                    <button name="op" value="add_minute" class="small button" title="Add a minute">+m</button>
+                    <button name="op" value="add_minute" class="small button" title="Add a minute: first=offset, second=date-time">+m</button>
                     <br/>
-                    <button name="op" value="add_second" class="small button" title="Add a second">+s</button>
+                    <button name="op" value="add_second" class="small button" title="Add a second: first=offset, second=date-time">+s</button>
                 </td>
                 <td>
-                    <button name="op" value="subtract_year" class="small button" title="Subtract a year">-Y</button>
+                    <button name="op" value="subtract_year" class="small button" title="Subtract a year: first=offset, second=date-time">-Y</button>
                     <br/>
-                    <button name="op" value="subtract_month" class="small button" title="Subtract a month">-M</button>
+                    <button name="op" value="subtract_month" class="small button" title="Subtract a month: first=offset, second=date-time">-M</button>
                     <br/>
-                    <button name="op" value="subtract_day" class="small button" title="Subtract a day">-D</button>
+                    <button name="op" value="subtract_day" class="small button" title="Subtract a day: first=offset, second=date-time">-D</button>
                     <br/>
-                    <button name="op" value="subtract_hour" class="small button" title="Subtract an hour">-h</button>
+                    <button name="op" value="subtract_hour" class="small button" title="Subtract an hour: first=offset, second=date-time">-h</button>
                     <br/>
-                    <button name="op" value="subtract_minute" class="small button" title="Subtract a minute">-m</button>
+                    <button name="op" value="subtract_minute" class="small button" title="Subtract a minute: first=offset, second=date-time">-m</button>
                     <br/>
-                    <button name="op" value="subtract_second" class="small button" title="Subtract a second">-s</button>
+                    <button name="op" value="subtract_second" class="small button" title="Subtract a second: first=offset, second=date-time">-s</button>
                 </td>
             </tr>
             </table>
