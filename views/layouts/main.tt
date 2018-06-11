@@ -4,12 +4,13 @@
 <head>
 <meta http-equiv="Content-type" content="text/html; charset=<% settings.charset %>" />
 <title>Time::Calculator</title>
-<link rel="stylesheet" href="<% request.uri_base %>/css/style.css" />
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="<% request.uri_base %>/foundation-5.5.2/css/normalize.css" />
 <link rel="stylesheet" href="<% request.uri_base %>/foundation-5.5.2/css/foundation.css" />
 <script src="<% request.uri_base %>/foundation-5.5.2/js/vendor/modernizr.js"></script>
+
+<link rel="stylesheet" href="<% request.uri_base %>/css/style.css" />
 
 <!-- Grab jQuery from a CDN, fall back to local if necessary -->
 <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
