@@ -63,7 +63,7 @@
             <table class="no_margin">
             <tr>
                 <td>
-                    <button name="op" value="clear" class="small button" title="Clear output">Clr</button>
+                    <button name="op" value="clear" class="small button" title="Clear fields">Clr</button>
                     <br/>
                     <button name="op" value="difference" class="small button" title="Date-time difference">Dif</button>
                     <br/>
