@@ -2,7 +2,7 @@
 <table>
     <tr>
         <td colspan="3">
-            <table width="100%">
+            <table width="100%" style="margin:0;">
             <tr>
                 <td><input type="text" name="first" value="<% first %>" style="text-align:right;" title="Input" /></td>
                 <td><input type="text" name="output" value="<% output %>" style="text-align:right;" title="Output" /></td>
@@ -65,6 +65,8 @@
                     <button name="op" value="clear" class="small button" title="Clear output">Clr</button>
                     <br/>
                     <button name="op" value="difference" class="small button" title="Date-time difference">Dif</button>
+                    <br/>
+                    <button name="op" value="swap" class="small button" title="Swap fields">Sw</button>
                 </td>
             </tr>
             </table>
