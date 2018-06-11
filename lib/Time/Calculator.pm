@@ -29,9 +29,10 @@ Time::Calculator - A simple date and time calculator
 
 any '/' => sub {
     my $data = calculate(
-        first  => params->{first},
-        output => params->{output},
-        op     => params->{op},
+        first     => params->{first},
+        output    => params->{output},
+        op        => params->{op},
+        undo_text => params->{undo_text},
     );
 
     template 'index', $data;
@@ -49,6 +50,7 @@ sub calculate {
     my $op    = $args{op} // 'clear';
     my $first = $args{first};
     my $out   = $args{output};
+    my $undo  = $args{undo_text};
 
     my $offset = $first =~ /\A\d+\z/ ? $first : 1;
 
@@ -62,6 +64,8 @@ sub calculate {
         $stamp = UnixDate( $out, "%Y-%m-%dT%H:%M:%S" );
         $out_dt = DateTime::Format::DateParse->parse_datetime($stamp);
     }
+
+    $undo = "$first,$out" unless $op eq 'undo';
 
     my $dispatch = {
         swap            => sub { my $temp = $first; $first = $out; $out = $temp; },
@@ -97,11 +101,16 @@ sub calculate {
             my $timestring = $first =~ s/(\d+)([a-z])/$1 $DURATIONS{$2} /gr;
             $out = parse_duration($timestring) . 's';
         },
+        undo => sub {
+            my ( $temp_first, $temp_out ) = ( $first, $out );
+            ( $first, $out ) = split ',', $undo;
+            $undo = "$temp_first,$temp_out";
+        },
     };
 
     $dispatch->{$op}->();
 
-    return { first => $first, output => $out };
+    return { first => $first, output => $out, undo => $undo };
 }
 
 true;
