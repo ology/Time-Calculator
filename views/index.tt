@@ -1,5 +1,5 @@
 <form action="/" method="post">
-<input type="hidden" name="undo_text" value="<% undo %>" title="Undo" />
+<input type="hidden" name="undo_text" value="<% undo %>" />
 <table>
     <tr>
         <td colspan="3">
@@ -69,7 +69,7 @@
                     <br/>
                     <button name="op" value="swap" class="small button" title="Swap fields">Sw</button>
                     <br/>
-                    <button name="op" value="undo" class="small button" title="Undo">Un</button>
+                    <button name="op" value="undo" class="small button" title=" Single-level undo">Un</button>
                 </td>
             </tr>
             </table>
