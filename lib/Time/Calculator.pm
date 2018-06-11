@@ -8,9 +8,8 @@ use DateTime;
 use DateTime::Format::Strptime;
 use DateTime::Format::DateParse;
 use Time::Duration::Parse;
-use Readonly;
 
-Readonly my %DURATIONS => (
+my %DURATIONS = (
     w => 'weeks',
     d => 'days',
     h => 'hours',
