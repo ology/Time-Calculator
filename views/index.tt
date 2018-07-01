@@ -22,7 +22,7 @@
                     <br/>
                     <button name="op" value="localtime" class="small button" title="Epoch to timestamp: first=epoch">T2D</button>
                     <br/>
-                    <button name="op" value="duration" class="small button" title="Duration: first=date-time, second=date-time">Dur</button>
+                    <button name="op" value="duration" class="small button" title="Duration: first=duration-string (w,d,h,m,s)">Dur</button>
                 </td>
             </tr>
             </table>
