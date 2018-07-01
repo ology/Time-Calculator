@@ -20,7 +20,7 @@
                     <br/>
                     <button name="op" value="dow" class="small button" title="Day of week: first=date-time">Dow</button>
                     <br/>
-                    <button name="op" value="localtime" class="small button" title="Timestamp to date: first=date-time">T2D</button>
+                    <button name="op" value="localtime" class="small button" title="Epoch to timestamp: first=epoch">T2D</button>
                     <br/>
                     <button name="op" value="duration" class="small button" title="Duration: first=date-time, second=date-time">Dur</button>
                 </td>
