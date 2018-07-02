@@ -20,9 +20,9 @@
                     <br/>
                     <button name="op" value="dow" class="small button" title="Day of week: first=date-time">Dow</button>
                     <br/>
-                    <button name="op" value="localtime" class="small button" title="Epoch to timestamp: first=epoch">T2D</button>
+                    <button name="op" value="localtime" class="small button" title="Epoch to timestamp: first=epoch">E2T</button>
                     <br/>
-                    <button name="op" value="duration" class="small button" title="Duration: first=duration-string (w,d,h,m,s)">Dur</button>
+                    <button name="op" value="duration" class="small button" title="Duration to seconds: first=w|d|h|m|s">D2S</button>
                 </td>
             </tr>
             </table>
