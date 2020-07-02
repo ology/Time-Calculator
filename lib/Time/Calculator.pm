@@ -60,7 +60,7 @@ sub calculate {
         $first_dt = $parser->parse_datetime($first);
     }
     if ( $out ) {
-        $first_dt = $parser->parse_datetime($out);
+        $out_dt = $parser->parse_datetime($out);
     }
 
     $undo = "$first,$out" unless $op eq 'undo';
