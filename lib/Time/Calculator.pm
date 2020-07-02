@@ -3,10 +3,9 @@ use Dancer2;
 
 our $VERSION = '0.1';
 
-use Date::Manip;
 use DateTime;
+use DateTime::Format::Natural;
 use DateTime::Format::Strptime;
-use DateTime::Format::DateParse;
 use Time::Duration::Parse;
 
 my %DURATIONS = (
@@ -54,15 +53,14 @@ sub calculate {
 
     my $offset = $first =~ /\A\d+\z/ ? $first : 1;
 
-    my ( $stamp, $first_dt, $out_dt );
+    my ( $first_dt, $out_dt );
 
+    my $parser = DateTime::Format::Natural->new;
     if ( $first ) {
-        $stamp = UnixDate( $first, "%Y-%m-%dT%H:%M:%S" );
-        $first_dt = DateTime::Format::DateParse->parse_datetime($stamp);
+        $first_dt = $parser->parse_datetime($first);
     }
     if ( $out ) {
-        $stamp = UnixDate( $out, "%Y-%m-%dT%H:%M:%S" );
-        $out_dt = DateTime::Format::DateParse->parse_datetime($stamp);
+        $first_dt = $parser->parse_datetime($out);
     }
 
     $undo = "$first,$out" unless $op eq 'undo';
